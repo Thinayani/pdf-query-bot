@@ -16,7 +16,7 @@ def split_pdf(pdfPath):
 
 def get_Gemini_Response(prompt):
     try:
-        genai.configure(api_key="AIzaSyC6RBLbavcfgQeizC_MCtAj0ubnnnFSctU")
+        genai.configure(api_key=API_KEY)
         model = genai.GenerativeModel("gemini-1.5-flash")
         response = model.generate_content(prompt)
         return response.text
