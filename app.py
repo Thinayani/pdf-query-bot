@@ -28,8 +28,16 @@ if uploaded_file is not None:
         pageList = []
         for doc in docs:
             pageList.append(doc.page_content)
-        prompt = f"For the following question: {query}, based on the document:\n {pageList}"
-        # st.write(prompt)
+        # prompt = f"For the following question: {query}, based on the document:\n {pageList}"
+        prompt = (
+            f"You are an expert on the story, possessing a comprehensive and nuanced understanding of its plot, "
+            f"characters, themes, and intricate details. "
+            f"Your task is to provide a thorough, clear, and accurate answer to the following question, "
+            f"drawing exclusively from the context provided from the document excerpts. "
+            f"Ensure that your response is well-informed and directly addresses the query.\n\n"
+            f"Question: {query}\n\n"
+            f"Context:\n {pageList}"
+        )
 
         # Get and display the response
         response = get_Gemini_Response(prompt)
